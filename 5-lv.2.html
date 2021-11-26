@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lv2</title>
+</head>
+
+<body>
+
+    <div align="center">
+        <b>请选择您的爱好</b>
+        <br />
+    </div>
+
+    <div id="divlist" align="center">
+        <input type="checkbox" id="p1" value="内卷">内卷
+        <input type="checkbox" id="p2" value="疯狂内卷">疯狂内卷
+        <input type="checkbox" id="p3" value="拼命内卷">拼命内卷
+        <input type="checkbox" id="p4" value="使劲内卷">使劲内卷
+        <br />
+        <input type="button" value="全选" onclick="setAll();">
+        <input type="button" value="全不选" onclick="none();">
+        <input type="button" value="反选" onclick="fan();">
+    </div>
+
+</body>
+<script type="text/javascript">
+    var alllist = document.getElementById("all");
+    var divlist = document.getElementById("divlist");
+    var inputs = divlist.getElementsByTagName("input");
+    alllist.onclick = function(){
+        if(this.checked){
+            for(var i=0;i<inputs.length;i++){
+                inputs[i].checked = "checked";
+            }
+        }
+        else{
+            for(var i=0;i<inputs.length;i++){
+                inputs[i].checked = null;
+            }
+        }
+    }
+    function setAll()
+    {
+        var playlist=document.getElementById("divlist");
+        var inputs=document.getElementsByTagName("input");
+        for(var i=0;i<inputs.length;i++){
+            var inp=inputs[i];
+            if(inp.type=="checkbox"){
+                inp.checked="checked";
+            }
+        }
+    }
+    function none(){
+        var playlist=document.getElementById("divlist");
+        var inputs=document.getElementsByTagName("input");
+        for(var i=0;i<inputs.length;i++){
+            var inp=inputs[i];
+            if(inp.type=="checkbox"){
+                inp.checked=null;
+            }
+        }
+    }
+    function fan(){
+        var playlist=document.getElementById("divlist");
+        var inputs=playlist.getElementsByTagName("input");
+        for(var i=0;i<inputs.length;i++){
+            var inp=inputs[i];
+            if(inp.type=="checkbox"){
+                if(inp.checked==true){
+                    inp.checked=null;
+                }
+                else{
+                    inp.checked="checked";
+                }
+            }
+        }
+    }
+    
+    
+</script>
+
+</html>
